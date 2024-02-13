@@ -10,3 +10,12 @@ function createGameboard (name) {
 
     return {gameName, getTurn, getGameBoard};
 };
+
+function createPlayer (name) {
+    const playerName = name;
+    let playerMarker = '';
+
+    const setMarker = (marker) => playerMarker = marker;
+
+    return {playerName, setMarker};
+}

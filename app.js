@@ -6,9 +6,23 @@ function createGameboard (name) {
 
     let turn = 0;
     const getTurn = () => turn;
+    const increaseTurn = () => turn++;
     const getGameBoard = () => gameBoard;
+    const getPlayerInput = (input, playerMarker) => {
+        if(gameBoard[input] == '') {
+            gameBoard[input] = playerMarker;
+            increaseTurn();
+        }
+        else {
+            console.error("You must select an empty cell!")
+        }
+    };
 
-    return {gameName, getTurn, getGameBoard};
+    const checkWinConditions = () => {
+        
+    };
+
+    return {gameName, getTurn, increaseTurn, getGameBoard, getPlayerInput};
 };
 
 function createPlayer (name) {

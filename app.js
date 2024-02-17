@@ -1,10 +1,11 @@
 
 // Gameboard factory
-function createGameboard (name) {
+function createGameboard (name, player1, player2) {
     const gameName = name;
     const gameBoard = ['', '', '', '', '', '', '', '', ''];
 
     let turn = 0;
+    let gameWon = false;
     const getTurn = () => turn;
     const increaseTurn = () => turn++;
     const getGameBoard = () => gameBoard;
@@ -22,7 +23,16 @@ function createGameboard (name) {
         
     };
 
-    return {gameName, getTurn, increaseTurn, getGameBoard, getPlayerInput};
+    const playRound = () => {
+        if(!gameWon) {
+            if(turn % 2 == 0) {
+                // The first parameter is purely for testing purposes
+                getPlayerInput(prompt("Please enter a number according to the grid") ,player1.playerMarker);
+            }
+        }
+    };
+
+    return {gameName, getTurn, increaseTurn, getGameBoard, getPlayerInput, playRound};
 };
 
 function createPlayer (name) {

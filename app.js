@@ -3,6 +3,8 @@
 function createGameboard (name, player1, player2) {
     const gameName = name;
     const gameBoard = ['', '', '', '', '', '', '', '', ''];
+    const player1 = player1;
+    const player2 = player2;
 
     let turn = 0;
     let gameWon = false;
@@ -23,12 +25,9 @@ function createGameboard (name, player1, player2) {
         
     };
 
-    const playRound = () => {
+    const playRound = (playerInput) => {
         if(!gameWon) {
-            if(turn % 2 == 0) {
-                // The first parameter is purely for testing purposes
-                getPlayerInput(prompt("Please enter a number according to the grid") ,player1.playerMarker);
-            }
+            
         }
     };
 
@@ -41,5 +40,7 @@ function createPlayer (name) {
 
     const setMarker = (marker) => playerMarker = marker;
 
-    return {playerName, setMarker};
+    const getMarker = () => playerMarker;
+
+    return {playerName, setMarker, getMarker};
 }

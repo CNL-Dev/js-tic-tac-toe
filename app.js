@@ -31,10 +31,10 @@ function createGameboard (name, player1, player2) {
         if(!gameWon) {
             // Player 1 goes on even turns, 
             // player 2 on odd turns.
-            if(turn % 0 == 2) {
-                getPlayerInput(prompt("Please select an empty cell:" , gameboardPlayer1.getMarker()));
+            if(turn % 2 == 0) {
+                getPlayerInput(prompt("Please select an empty cell:") , gameboardPlayer1.getMarker());
             } else {
-                getPlayerInput(prompt("Please select an empty cell:" , gameboardPlayer2.getMarker()));
+                getPlayerInput(prompt("Please select an empty cell:") , gameboardPlayer2.getMarker());
             }
         }
     };

@@ -2,9 +2,9 @@
 // Gameboard factory
 function createGameboard (name, player1, player2) {
     const gameName = name;
-    let gameboard = ['', '', '',
-                       '', '', '',
-                       '', '', ''];
+    let gameboard = [['', '', ''],
+                    ['', '', ''],
+                    ['', '', '']];
     const gameboardPlayer1 = player1;
     const gameboardPlayer2 = player2;
 
@@ -13,9 +13,9 @@ function createGameboard (name, player1, player2) {
     const getTurn = () => turn;
     const increaseTurn = () => turn++;
     const getGameboard = () => gameboard;
-    const getPlayerInput = (input, playerMarker) => {
-        if(gameboard[input] == '') {
-            gameboard[input] = playerMarker;
+    const getPlayerInput = (inputX, inputY, playerMarker) => {
+        if(gameboard[inputX][inputY] == '') {
+            gameboard[inputX][inputY] = playerMarker;
             increaseTurn();
         }
         else {
@@ -32,9 +32,13 @@ function createGameboard (name, player1, player2) {
             // Player 1 goes on even turns, 
             // player 2 on odd turns.
             if(turn % 2 == 0) {
-                getPlayerInput(prompt("Please select an empty cell:") , gameboardPlayer1.getMarker());
+                getPlayerInput(prompt("Please select a row:") ,
+                prompt("Please select a column:"),
+                gameboardPlayer1.getMarker());
             } else {
-                getPlayerInput(prompt("Please select an empty cell:") , gameboardPlayer2.getMarker());
+                getPlayerInput(prompt("Please select an empty cell:"),
+                prompt("Please select a column:"),
+                 gameboardPlayer2.getMarker());
             }
         }
     };

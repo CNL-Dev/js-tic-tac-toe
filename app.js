@@ -24,7 +24,31 @@ function createGameboard (name, player1, player2) {
     };
 
     const checkWinConditions = () => {
-        
+        // Check rows
+        for(r = 0; r < 3; r++) {
+            if(gameboard[r][0] == gameboard[r][1] &&
+               gameboard[r][1] ==  gameboard[r][2] && 
+               gameboard[r][0] != '') return true;
+        }
+
+        // Check columns
+        for(r = 0; c < 3; r++) {
+            if(gameboard[0][c] == gameboard[1][c] &&
+               gameboard[1][c] ==  gameboard[2][c] && 
+               gameboard[0][c] != '') return true;
+        }
+
+        // Check diagonals
+        if(gameboard[0][0] == gameboard[1][1] &&
+           gameboard[1][1] == gameboard[2][2] &&
+           gameboard[0][0] != '') return true;
+
+        if(gameboard[0][2] == gameboard[1][1] &&
+           gameboard[1][1] == gameboard[2][0] &&
+           gameboard[2][0] != '') return true;
+
+        // No winner found
+        return false;
     };
 
     const playRound = () => {
@@ -38,12 +62,12 @@ function createGameboard (name, player1, player2) {
             } else {
                 getPlayerInput(prompt("Please select an empty cell:"),
                 prompt("Please select a column:"),
-                 gameboardPlayer2.getMarker());
+                gameboardPlayer2.getMarker());
             }
         }
     };
 
-    return {gameName, getTurn, increaseTurn, getGameboard, getPlayerInput, playRound};
+    return {gameName, getTurn, increaseTurn, getGameboard, getPlayerInput, checkWinConditions, playRound};
 };
 
 function createPlayer (name) {

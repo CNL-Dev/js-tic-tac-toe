@@ -32,7 +32,7 @@ function createGameboard (name, player1, player2) {
         }
 
         // Check columns
-        for(r = 0; c < 3; r++) {
+        for(c = 0; c < 3; r++) {
             if(gameboard[0][c] == gameboard[1][c] &&
                gameboard[1][c] ==  gameboard[2][c] && 
                gameboard[0][c] != '') return true;

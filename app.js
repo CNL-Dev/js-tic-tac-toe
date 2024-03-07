@@ -64,6 +64,19 @@ function createGameboard (name, player1, player2) {
                 prompt("Please select a column:"),
                 gameboardPlayer2.getMarker());
             }
+
+            if(turn >= 5) {
+                if(checkWinConditions()) {
+                    gameWon = true;
+                    alert("Player has won!");
+                }
+            }
+
+            if(turn >= 9) {
+                if(!checkWinConditions()) {
+                    alert("The game has ended in a tie!")
+                }
+            }
         }
     };
 

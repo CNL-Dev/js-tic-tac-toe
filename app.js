@@ -93,3 +93,7 @@ function createPlayer (name) {
 
     return {playerName, setMarker, getMarker};
 }
+
+function createDisplay (game) {
+    const game = game;
+}

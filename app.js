@@ -80,7 +80,16 @@ function createGameboard (name, player1, player2) {
         }
     };
 
-    return {gameName, getTurn, increaseTurn, getGameboard, getPlayerInput, checkWinConditions, playRound};
+    // Resets all cell to blank value
+    const clearBoard = () => {
+        for(r = 0; r < 3; r++) {
+            for(c = 0; c < 3; c++) {
+                gameboard[r][c] = '';
+            }
+        }
+    }
+
+    return {gameName, getTurn, increaseTurn, getGameboard, getPlayerInput, checkWinConditions, playRound, clearBoard};
 };
 
 function createPlayer (name) {
@@ -94,6 +103,7 @@ function createPlayer (name) {
     return {playerName, setMarker, getMarker};
 }
 
+// Display factory
 function createDisplay (game) {
     const game = game;
 }
